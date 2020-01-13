@@ -1,0 +1,10 @@
+.idea/*
+api/idea/*
+.docker/db/*
+frontend/node_modules
+frontend/build
+.DS_Store
+.env
+.env.development.local
+.env.test.local
+.env.production.local

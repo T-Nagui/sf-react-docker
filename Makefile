@@ -4,10 +4,12 @@
 cmd=""
 path="src"
 OS := $(shell uname)
+cp = ""
 
 up:
 	docker-compose down &&  docker-compose -f docker-compose.yml up -d --remove-orphans --force-recreate
-
+dockerFirstInit:
+	docker-compose build && make up
 down:
 	docker-compose down
 
@@ -27,6 +29,8 @@ load-fixtures:
 # exemple make sf cmd=cache:clear
 sf:
 	docker exec -it app_php bash -c 'php bin/console $(cmd)'
+sfCompo:
+	docker exec -it app_php bash -c 'composer req $(cp) -vvv'
 phpcs:
 	docker exec -it app_php bash -c ' vendor/bin/php-cs-fixer fix $(path)'
 

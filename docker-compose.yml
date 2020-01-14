@@ -18,6 +18,7 @@ services:
       - mysql
     environment:
       - maildev_host=app_maildev
+    user: 1000:1000
 
   mysql:
     image: mysql:5.7

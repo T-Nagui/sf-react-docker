@@ -14,7 +14,7 @@ down:
 	docker-compose down
 
 bash:
-	docker exec -it app_php bash
+	docker exec -it -u root app_php bash
 log:
 	docker exec -it app_httpd bash -c 'tail -f /var/log/api_error.log'
 

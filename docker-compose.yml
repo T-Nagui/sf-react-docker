@@ -5,13 +5,14 @@ services:
     build:
       context: .docker/php
       args:
-        - WITH_XDEBUG=true
+        - WITH_XDEBUG=false
     env_file:
       - .env
     restart: always
     volumes:
       - ${SYMFONY_APP}:/var/www
       - .docker/php/php.ini:/usr/local/etc/php/php.ini
+      - "$HOME/.composer/:/home/.composer/"
     links:
       - mysql
     depends_on:

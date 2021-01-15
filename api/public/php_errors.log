@@ -2,3 +2,23 @@
 
 [15-Jan-2021 13:55:53 UTC] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "http://localhost:81/")" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
 
+[15-Jan-2021 14:33:55 UTC] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /"" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Jan-2021 14:34:09 UTC] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /api_doc"" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Jan-2021 14:35:03 UTC] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /doc"" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Jan-2021 14:35:06 UTC] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /docs"" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Jan-2021 14:36:13 UTC] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /doc"" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Jan-2021 14:36:22 UTC] [info] Matched route "app.swagger".
+
+[15-Jan-2021 14:36:28 UTC] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /api/doc"" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Jan-2021 14:36:32 UTC] [info] Matched route "app.swagger".
+
+[15-Jan-2021 14:39:57 UTC] [info] Matched route "app.swagger".
+
+[15-Jan-2021 14:43:33 UTC] [info] Matched route "base".
+

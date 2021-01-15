@@ -1,0 +1,32 @@
+[15-Jan-2021 15:13:32 UTC] [error] Error thrown while running command "'make:m'". Message: "Command "make:m" is ambiguous.
+Did you mean one of these?
+    make:message              Creates a new message and handler
+    make:messenger-middleware Creates a new messenger middleware
+    make:migration            Creates a new migration based on database changes."
+
+[15-Jan-2021 15:13:37 UTC] [error] Error thrown while running command "make". Message: "Command "make" is not defined.
+
+Did you mean one of these?
+    make:auth
+    make:command
+    make:controller
+    make:crud
+    make:docker:database
+    make:entity
+    make:fixtures
+    make:form
+    make:functional-test
+    make:message
+    make:messenger-middleware
+    make:migration
+    make:registration-form
+    make:reset-password
+    make:serializer:encoder
+    make:serializer:normalizer
+    make:subscriber
+    make:twig-extension
+    make:unit-test
+    make:user
+    make:validator
+    make:voter"
+

@@ -10,8 +10,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends nano curl debco
 
 # Install git
 RUN apt-get update \
-    && apt-get -y install git \
+    && apt-get -y install git zip unzip \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
 RUN if [ $WITH_XDEBUG = "true" ] ; then \
     pecl install xdebug; \
     docker-php-ext-enable xdebug; \

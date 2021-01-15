@@ -1,0 +1,4 @@
+[15-Jan-2021 13:55:53 UTC] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /"" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Jan-2021 13:55:53 UTC] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "http://localhost:81/")" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+

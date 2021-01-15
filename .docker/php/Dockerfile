@@ -4,18 +4,14 @@ MAINTAINER Neji Trabelsi <tni.nagui@gmail.com>
 #pour activer ou non le Xdebug depuis docker compose
 ARG WITH_XDEBUG=false
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    nano curl debconf subversion \
-    git apt-transport-https apt-utils \
-    build-essential locales acl mailutils \
-    wget zip unzip gnupg gnupg1 gnupg2 ssh \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-    #pecl install mongodb \
+RUN apt-get update && apt-get install -y --no-install-recommends nano curl debconf subversion libzip-dev zlib1g-dev \
+    && apt-get install -y apt-transport-https apt-utils build-essential locales acl mailutils wget zip unzip gnupg gnupg1 gnupg2 ssh \
+    && apt-get install -y curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-
-
-RUN apt-get install -y libzip-dev zlib1g-dev
-
+# Install git
+RUN apt-get update \
+    && apt-get -y install git \
+    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 RUN if [ $WITH_XDEBUG = "true" ] ; then \
     pecl install xdebug; \
     docker-php-ext-enable xdebug; \
@@ -29,23 +25,19 @@ RUN docker-php-ext-install pdo pdo_mysql
 
 COPY php-fpm-pool.conf /etc/php/7.4/pool.d/www.conf
 
-# RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls \
-#    && mv composer.phar /usr/local/bin/composer
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+RUN php composer-setup.php
+RUN php -r "unlink('composer-setup.php');"
+RUN mv composer.phar /usr/local/bin/composer
+RUN chmod +x /usr/local/bin/composer
+RUN ln -snf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime
 
-#RUN composer global require hirak/prestissimo --prefer-dist --no-progress --no-suggest --classmap-authoritative
-
-RUN chown -R www-data:www-data /.composer
-
-RUN rm -rf /var/lib/apt/lists/*
-RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-    echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen && \
-    locale-gen
 ADD . /var/www
 RUN chown -R www-data:www-data /var/www
 
 WORKDIR /var/www/
 
-ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"
+#ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"
 
 EXPOSE 9000
 CMD ["php-fpm"]

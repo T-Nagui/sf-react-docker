@@ -19,8 +19,7 @@ log:
 	docker exec -it app_httpd bash -c 'tail -f /var/log/api_error.log'
 
 init:
-	docker exec -it app_php bash -c 'composer install -vvv \
-	&& php bin/console do:mi:mi \
+	docker exec -it app_php bash -c 'composer install --prefer-dist \
 	&& php bin/console cache:clear'
 
 load-fixtures:
